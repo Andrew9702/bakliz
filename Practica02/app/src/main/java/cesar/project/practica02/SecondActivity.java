@@ -31,7 +31,7 @@ public class SecondActivity extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String posicion = "Item #" + position;
+                String posicion = "Item #" + (position+1);
                 Toast msj = Toast.makeText(getApplicationContext(), posicion, Toast.LENGTH_SHORT);
                 msj.show();
             }
