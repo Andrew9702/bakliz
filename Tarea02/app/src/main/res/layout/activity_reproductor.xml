@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- <android.support.constraint.ConstraintLayout> -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_music"
+    tools:context=".Reproductor">
+
+    <RelativeLayout
+        android:id="@+id/image_album"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            app:srcCompat = "@drawable/albumdesconocido">
+        </ImageView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_album">
+
+        <TextView
+            android:id="@+id/cancion"
+            android:text="Canción"
+            android:textSize="21sp"
+            android:textColor="#FDFEFE"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"/>
+
+        <TextView
+            android:id="@+id/artista"
+            android:text="Artista"
+            android:textColor="#F0F3F4"
+            android:layout_below="@+id/cancion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <!-- Botones -->
+    <LinearLayout
+        android:id="@+id/botones"
+        android:layout_below="@+id/info"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:background="#FFFFFF"
+        >
+
+        <Button
+            android:id="@+id/pause"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_toLeftOf="@+id/play"
+            android:background="@drawable/pause"/>
+
+        <Button
+            android:id="@+id/play"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/play" />
+
+        <Button
+            android:id="@+id/stop"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_toRightOf="@id/play"
+            android:background="@drawable/stop"/>
+    </LinearLayout>
+
+</RelativeLayout>
+<!-- </android.support.constraint.ConstraintLayout> -->

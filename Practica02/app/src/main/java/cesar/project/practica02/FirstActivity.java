@@ -73,4 +73,12 @@ public class FirstActivity extends AppCompatActivity {
         intent.putStringArrayListExtra("list", l);
         startActivity ( intent ) ;
     }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        mp.stop();
+        mp.release();
+        mp = null;
+    }
 }
