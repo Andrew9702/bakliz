@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/cancion"
         android:text="Canción"
-        android:textSize="21sp"
+        android:textSize="40px"
         android:textColor="#FDFEFE"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
@@ -22,6 +22,7 @@
         android:id="@+id/artista"
         android:text="Artista"
         android:textColor="#F0F3F4"
+        android:textSize="30px"
         android:layout_below="@+id/cancion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -2,21 +2,25 @@ package bakliz.tarea02;
 
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 
 public class Reproductor extends AppCompatActivity {
 
     MediaPlayer mp;
     Button play, pause, stop;
+    TextView nombre, artista;
+    ImageView imagen;
+
+    Cancion cancion;
+    String nombre_cancion, artista_cancion;
+    Drawable imagen_cancion;
     int pausa;
-    String nom_can;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +31,22 @@ public class Reproductor extends AppCompatActivity {
         pause = (Button) findViewById(R.id.pause);
         stop = (Button) findViewById(R.id.stop);
 
+        //Obtenemos la información de la canción que escogió el usuario
         Bundle datos = this.getIntent().getExtras();
-        nom_can = datos.getString("cancion");
+        nombre_cancion = datos.getString("cancion");
+        artista_cancion = datos.getString("artista");
+
+        //Actualizamos la pantalla con la información de la canción escogida por el usuario
+        nombre = (TextView) findViewById(R.id.cancion);
+        artista = (TextView) findViewById(R.id.artista);
+        nombre.setText(nombre_cancion);
+        artista.setText(artista_cancion);
+
+        //cancion = (Cancion) datos.getSerializable("cancion");
+        /*
+        imagen_cancion = cancion.getImagen();
+        imagen = (ImageView) findViewById(R.id.imagen);
+        imagen.setImageDrawable(imagen_cancion);*/
 
         play.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,9 +73,9 @@ public class Reproductor extends AppCompatActivity {
     public void play(View view){
 
         if(mp == null){
-            if(nom_can.equals("Beauty in the Mundane"))
+            if(nombre_cancion.equals("Beauty in the Mundane"))
                 mp = MediaPlayer.create(this, R.raw.beautyinthemundane);
-            else if(nom_can.equals("A Heavy Load"))
+            else if(nombre_cancion.equals("A Heavy Load"))
                 mp = MediaPlayer.create(this, R.raw.aheavyload);
             else
                 mp = MediaPlayer.create(this, R.raw.lostyou);
@@ -81,5 +99,13 @@ public class Reproductor extends AppCompatActivity {
         mp.stop();
         mp = null;
         Toast.makeText(this, "Stop", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        mp.stop();
+        mp.release();
+        mp = null;
     }
 }

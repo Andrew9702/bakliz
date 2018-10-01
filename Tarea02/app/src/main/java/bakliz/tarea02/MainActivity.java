@@ -46,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void reproducir(int position){
         Intent intent = new Intent(getApplicationContext(), Reproductor.class);
+        //intent.putExtra("cancion", canciones.get(position));
         intent.putExtra("cancion", canciones.get(position).getNombre());
+        intent.putExtra("artista", canciones.get(position).getArtista());
         startActivity(intent);
     }
 }

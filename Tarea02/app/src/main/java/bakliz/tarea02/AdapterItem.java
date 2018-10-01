@@ -56,16 +56,16 @@ public class AdapterItem extends BaseAdapter {
             v = inf.inflate(R.layout.item_cancion, null);
         }
 
-        Cancion dir = items.get(position);
+        Cancion c = items.get(position);
 
-        TextView title = (TextView) v.findViewById(R.id.cancion);
-        title.setText(dir.getNombre());
+        TextView cancion = (TextView) v.findViewById(R.id.cancion);
+        cancion.setText(c.getNombre());
 
-        TextView description = (TextView) v.findViewById(R.id.artista);
-        description.setText(dir.getArtista());
+        TextView artista = (TextView) v.findViewById(R.id.artista);
+        artista.setText(c.getArtista());
 
         ImageView imagen = (ImageView) v.findViewById(R.id.image_album);
-        imagen.setImageDrawable(dir.getImagen());
+        imagen.setImageDrawable(c.getImagen());
 
         return v;
     }
