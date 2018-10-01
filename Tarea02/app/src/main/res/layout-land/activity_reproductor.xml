@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     android:background="@drawable/background_music"
     tools:context=".Reproductor">
 
@@ -27,10 +28,10 @@
     <!-- Información de la canción -->
     <RelativeLayout
         android:id="@+id/info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="10px"
-        android:layout_below="@+id/image_album">
+        android:layout_toRightOf="@id/image_album">
 
         <TextView
             android:id="@+id/cancion"
@@ -59,8 +60,8 @@
         android:id="@+id/botones"
         android:layout_below="@+id/info"
         android:layout_marginTop="10px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_centerVertical ="true"
         android:gravity="center"
         android:weightSum="3">
