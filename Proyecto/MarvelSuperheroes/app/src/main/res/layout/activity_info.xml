@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InfoHeroe">
+
+    <!-- Imagen del superhéroe -->
+    <RelativeLayout
+        android:id="@+id/image_album"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imagen"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            app:srcCompat = "@drawable/marvel_logo">
+        </ImageView>
+
+    </RelativeLayout>
+
+    <!-- Información del superhéroe -->
+    <RelativeLayout
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10px"
+        android:layout_below="@+id/image_album">
+
+        <TextView
+            android:id="@+id/nombre"
+            android:text="Superhéroe"
+            android:textSize="20sp"
+            android:textColor="#FDFEFE"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"/>
+
+        <TextView
+            android:id="@+id/origen"
+            android:text="Origen"
+            android:textSize="15sp"
+            android:textColor="#F0F3F4"
+            android:layout_below="@+id/nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/habilidades"
+            android:text="Habilidades"
+            android:textSize="15sp"
+            android:textColor="#F0F3F4"
+            android:layout_below="@+id/origen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+</RelativeLayout>
