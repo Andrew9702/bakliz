@@ -2,6 +2,7 @@ package com.example.andres.marvelsuperheroes;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +12,14 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class AdapterItem extends BaseAdapter {
+public class AdaptadorLista extends BaseAdapter {
 
 
     private Context context;
     protected Activity activity;
     protected ArrayList<MarvelHero> items;
 
-    public AdapterItem (Context context, ArrayList<MarvelHero> items) {
+    public AdaptadorLista(Context context, ArrayList<MarvelHero> items) {
         this.context = context;
         this.items = items;
     }
@@ -50,13 +51,22 @@ public class AdapterItem extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        MarvelHero hero = (MarvelHero) getItem(position);
+        final MarvelHero hero = (MarvelHero) getItem(position);
         convertView = LayoutInflater.from(context).inflate(R.layout.item, null);
 
         TextView heroe = (TextView) convertView.findViewById(R.id.heroe);
         ImageView imagen = (ImageView) convertView.findViewById(R.id.image_heroe);
         imagen.setImageResource(hero.getImagen());
         heroe.setText(hero.getNombre());
+
+        /*convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, InfoHeroe.class);
+                intent.putExtra("objetoData", hero);
+                context.startActivity(intent);
+            }
+        });*/
 
         return convertView;
     }

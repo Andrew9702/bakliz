@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<MarvelHero> heroes;
-    private AdapterItem adapter;
+    private AdaptadorLista adapter;
     private ListView lvHeroes;
 
     @Override
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         lvHeroes = (ListView) findViewById(R.id.lvHeroes);
         heroes = new ArrayList<MarvelHero>();
         cargarHeroes();
-        adapter= new AdapterItem(this, heroes);
+        adapter= new AdaptadorLista(this, heroes);
         lvHeroes.setAdapter(adapter);
 
         lvHeroes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
