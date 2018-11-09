@@ -13,11 +13,13 @@ import java.util.ArrayList;
 
 public class AdapterItem extends BaseAdapter {
 
+
+    private Context context;
     protected Activity activity;
     protected ArrayList<MarvelHero> items;
 
-    public AdapterItem (Activity activity, ArrayList<MarvelHero> items) {
-        this.activity = activity;
+    public AdapterItem (Context context, ArrayList<MarvelHero> items) {
+        this.context = context;
         this.items = items;
     }
 
@@ -30,11 +32,11 @@ public class AdapterItem extends BaseAdapter {
         items.clear();
     }
 
-    public void addAll(ArrayList<MarvelHero> heroe) {
+    /*public void addAll(ArrayList<MarvelHero> heroe) {
         for (int i = 0; i < heroe.size(); i++) {
             items.add(heroe.get(i));
         }
-    }
+    }*/
 
     @Override
     public Object getItem(int arg0) {
@@ -48,21 +50,14 @@ public class AdapterItem extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v = convertView;
+        MarvelHero hero = (MarvelHero) getItem(position);
+        convertView = LayoutInflater.from(context).inflate(R.layout.item, null);
 
-        if (convertView == null) {
-            LayoutInflater inf = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inf.inflate(R.layout.item, null);
-        }
+        TextView heroe = (TextView) convertView.findViewById(R.id.heroe);
+        ImageView imagen = (ImageView) convertView.findViewById(R.id.image_heroe);
+        imagen.setImageResource(hero.getImagen());
+        heroe.setText(hero.getNombre());
 
-        MarvelHero mh = items.get(position);
-
-        TextView heroe = (TextView) v.findViewById(R.id.heroe);
-        heroe.setText(mh.getNombre());
-
-        ImageView imagen = (ImageView) v.findViewById(R.id.image_heroe);
-        imagen.setImageDrawable(mh.getImagen());
-
-        return v;
+        return convertView;
     }
 }

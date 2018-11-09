@@ -1,32 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
+    android:layout_height="match_parent"
     android:background="#000000">
-
-  <TextView
-      android:id="@+id/heroe"
-      android:text="Superhéroe"
-      android:textSize="20sp"
-      android:textColor="#FDFEFE"
-      android:textAppearance="?android:attr/textAppearanceLarge"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_alignParentTop="true"
-      android:layout_toRightOf="@+id/image_heroe"
-      android:layout_toEndOf="@+id/image_heroe" />
 
   <ImageView
       android:id="@+id/image_heroe"
-      android:layout_alignBottom="@+id/heroe"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_alignParentTop="true"
-      android:layout_alignParentLeft="true"
-      android:layout_marginLeft="8dp"
-      android:layout_marginRight="4dp"
+      android:layout_width="100dp"
+      android:layout_height="70dp"
       android:layout_marginBottom="2dp"
       android:layout_marginTop="2dp"
       android:cropToPadding="false"
@@ -34,4 +17,22 @@
       android:maxHeight="35dp"
       android:maxWidth="74dp"
       android:adjustViewBounds="true" />
-</RelativeLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/heroe"
+        android:text="Superhéroe"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="#FDFEFE"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10sp" />
+  </LinearLayout>
+
+</LinearLayout>

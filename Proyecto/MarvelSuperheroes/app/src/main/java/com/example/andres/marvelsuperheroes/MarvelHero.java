@@ -1,6 +1,5 @@
 package com.example.andres.marvelsuperheroes;
 
-import android.graphics.drawable.Drawable;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -11,7 +10,7 @@ public class MarvelHero implements Serializable{
     private String origen;
     private String habilidades;
     private ArrayList<String> villanos;
-    private Drawable imagen;
+    private int imagen;
 
     public MarvelHero(){
         super();
@@ -21,13 +20,13 @@ public class MarvelHero implements Serializable{
         this.villanos = new ArrayList<String>();
     }
 
-    public MarvelHero(String nombre, String origen, String habilidades, ArrayList<String> villanos, Drawable imagen){
+    public MarvelHero(String nombre, String origen, String habilidades, ArrayList<String> villanos, int imagen){
         super();
-        this.nombre=nombre;
-        this.origen= origen;
-        this.habilidades= habilidades;
-        this.villanos =villanos;
-        this.imagen =imagen;
+        this.nombre = nombre;
+        this.origen = origen;
+        this.habilidades = habilidades;
+        this.villanos = villanos;
+        this.imagen = imagen;
     }
 
     public String getNombre() {
@@ -46,7 +45,7 @@ public class MarvelHero implements Serializable{
         return villanos;
     }
 
-    public Drawable getImagen() {
+    public int getImagen() {
         return imagen;
     }
 
@@ -66,7 +65,7 @@ public class MarvelHero implements Serializable{
         this.villanos = villanos;
     }
 
-    public void setImagen(Drawable imagen) {
+    public void setImagen(int imagen) {
         this.imagen = imagen;
     }
 }
