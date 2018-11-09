@@ -18,7 +18,7 @@
       android:maxWidth="74dp"
       android:adjustViewBounds="true" />
 
-  <LinearLayout
+  <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="vertical">
@@ -32,7 +32,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="10sp" />
-  </LinearLayout>
+  </RelativeLayout>
 
 </LinearLayout>

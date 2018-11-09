@@ -44,18 +44,24 @@ public class MainActivity extends AppCompatActivity {
                 "Picadura de araña radioactiva",
                 "Fuerza sobrehumana,sentido arácnido, trepar paredes",
                 villanos_spidey,
-                R.drawable.marvel_logo));
-    }
+                R.drawable.spidey));
 
-    private void cargarInfo(int position){
-        /*Intent intent = new Intent(getApplicationContext(), InfoHeroe.class);
-        intent.putExtra("heroe", heroes.get(position).getNombre());
-        intent.putExtra("origen", heroes.get(position).getOrigen());
-        intent.putExtra("habilidades", heroes.get(position).getOrigen());
-        startActivity(intent);*/
+        ArrayList<String> villanos_strange = new ArrayList<String>();
+        villanos_spidey.add("Baron Mordo");
+        villanos_spidey.add("Aradnea");
+        heroes.add(new MarvelHero("Dr. Strange",
+                "Aprendizaje y entrenamiento en las artes místicas",
+                "Poderes Místicos",
+                villanos_strange,
+                R.drawable.dr_strange));
 
-        /*Intent intent = new Intent(getApplicationContext(), InfoHeroe.class);
-        intent.putExtra("objetoData", heroes.get(position));
-        startActivity(intent);*/
+        ArrayList<String> villanos_iron = new ArrayList<String>();
+        villanos_spidey.add("Iron Monger");
+        villanos_spidey.add("El Mandarín");
+        heroes.add(new MarvelHero("Iron Man",
+                "Construcción de un traje mientras estaba secuestrado",
+                "Inteligencia, emanación de energía, Psi-Escudos",
+                villanos_iron,
+                R.drawable.iron_man));
     }
 }
