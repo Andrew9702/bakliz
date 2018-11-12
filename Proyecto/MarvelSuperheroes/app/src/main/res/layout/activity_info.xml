@@ -10,7 +10,7 @@
     android:paddingRight="10dp"
     android:paddingTop="15dp"
     android:background="#C0C0C0"
-    tools:context=".InfoHeroe">
+    tools:context="bakliz.marvelrecords.InfoHeroe">
 
     <!-- Nombre del superhéroe -->
     <TextView

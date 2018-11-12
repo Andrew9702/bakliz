@@ -1,4 +1,4 @@
-package com.example.andres.marvelsuperheroes;
+package bakliz.marvelrecords;
 
 import android.content.Context;
 import android.view.LayoutInflater;

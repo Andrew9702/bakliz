@@ -1,4 +1,4 @@
-package com.example.andres.marvelsuperheroes;
+package bakliz.marvelrecords;
 
 import java.io.Serializable;
 import java.util.ArrayList;

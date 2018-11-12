@@ -1,4 +1,4 @@
-package com.example.andres.marvelsuperheroes;
+package bakliz.marvelrecords;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
