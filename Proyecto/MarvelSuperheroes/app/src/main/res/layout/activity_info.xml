@@ -9,6 +9,7 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="15dp"
+    android:background="#C0C0C0"
     tools:context=".InfoHeroe">
 
     <!-- Nombre del superhéroe -->

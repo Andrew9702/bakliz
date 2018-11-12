@@ -28,7 +28,7 @@
         android:text="Superhéroe"
         android:textStyle="bold"
         android:textSize="20dp"
-        android:textColor="#FDFEFE"
+        android:textColor="#C0C0C0"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
