@@ -7,9 +7,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
 
     ArrayList<MarvelHero> heroes;
     private AdaptadorLista adapter;
@@ -51,5 +56,15 @@ public class MainActivity extends AppCompatActivity {
                 "Construcción de un traje mientras estaba secuestrado",
                 "Inteligencia, emanación de energía, Psi-Escudos",
                 R.drawable.iron_man));
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+
     }
 }
