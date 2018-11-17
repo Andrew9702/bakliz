@@ -9,7 +9,6 @@ public class MarvelHero implements Serializable{
     private String nombre;
     private String origen;
     private String habilidades;
-    private ArrayList<String> villanos;
     private int imagen;
 
     public MarvelHero(){
@@ -17,15 +16,13 @@ public class MarvelHero implements Serializable{
         this.nombre = "Superhéroe desconocido";
         this.origen = "Origen desconocido";
         this.habilidades = "Habilidades desconocidas";
-        this.villanos = new ArrayList<String>();
     }
 
-    public MarvelHero(String nombre, String origen, String habilidades, ArrayList<String> villanos, int imagen){
+    public MarvelHero(String nombre, String origen, String habilidades, int imagen){
         super();
         this.nombre = nombre;
         this.origen = origen;
         this.habilidades = habilidades;
-        this.villanos = villanos;
         this.imagen = imagen;
     }
 
@@ -41,9 +38,6 @@ public class MarvelHero implements Serializable{
         return habilidades;
     }
 
-    public ArrayList<String> getVillanos() {
-        return villanos;
-    }
 
     public int getImagen() {
         return imagen;
@@ -59,10 +53,6 @@ public class MarvelHero implements Serializable{
 
     public void setHabilidades(String habilidades) {
         this.habilidades = habilidades;
-    }
-
-    public void setVillanos(ArrayList<String> villanos) {
-        this.villanos = villanos;
     }
 
     public void setImagen(int imagen) {

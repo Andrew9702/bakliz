@@ -37,31 +37,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void cargarHeroes(){
-        ArrayList<String> villanos_spidey = new ArrayList<String>();
-        villanos_spidey.add("El duende verde");
-        villanos_spidey.add("Venom");
         heroes.add(new MarvelHero("Spiderman",
                 "Picadura de araña radioactiva",
                 "Fuerza sobrehumana,sentido arácnido, trepar paredes",
-                villanos_spidey,
                 R.drawable.spidey));
 
-        ArrayList<String> villanos_strange = new ArrayList<String>();
-        villanos_spidey.add("Baron Mordo");
-        villanos_spidey.add("Aradnea");
         heroes.add(new MarvelHero("Dr. Strange",
                 "Aprendizaje y entrenamiento en las artes místicas",
                 "Poderes Místicos",
-                villanos_strange,
                 R.drawable.dr_strange));
 
-        ArrayList<String> villanos_iron = new ArrayList<String>();
-        villanos_spidey.add("Iron Monger");
-        villanos_spidey.add("El Mandarín");
         heroes.add(new MarvelHero("Iron Man",
                 "Construcción de un traje mientras estaba secuestrado",
                 "Inteligencia, emanación de energía, Psi-Escudos",
-                villanos_iron,
                 R.drawable.iron_man));
     }
 }

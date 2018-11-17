@@ -4,37 +4,40 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000">
+    android:background="@color/silver">
 
   <ImageView
       android:id="@+id/image_heroe"
       android:layout_width="100dp"
-      android:layout_height="70dp"
+      android:layout_height="80dp"
       android:layout_marginBottom="2dp"
       android:layout_marginTop="2dp"
-      android:cropToPadding="false"
-      android:src="@drawable/marvel_logo"
-      android:maxHeight="35dp"
-      android:maxWidth="74dp"
-      android:adjustViewBounds="true" />
+      android:layout_marginLeft="10dp"
+      android:layout_gravity="center"
+      android:background="@color/silver"
+      android:src="@drawable/marvel_logo" />
 
   <RelativeLayout
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="vertical">
+      android:layout_height="100dp">
 
     <TextView
         android:id="@+id/heroe"
         android:text="Superhéroe"
         android:textStyle="bold"
         android:textSize="20dp"
-        android:textColor="#C0C0C0"
+        android:textColor="#000"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10sp" />
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="35dp"/>
+
   </RelativeLayout>
 
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" />
 </LinearLayout>
