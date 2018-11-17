@@ -3,9 +3,13 @@ package bakliz.marvelrecords;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -39,6 +43,24 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.id_search:
+                Toast.makeText(MainActivity.this, "Search", Toast.LENGTH_SHORT).show();
+                return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+        }
     }
 
     private void cargarHeroes(){
