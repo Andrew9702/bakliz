@@ -5,12 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#C0C0C0"
+    android:orientation="vertical"
     tools:context="bakliz.marvelrecords.MainActivity">
 
-    <ListView
-        android:id="@+id/lvHeroes"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/losHeroes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"/>
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:scrollbars="vertical" />
 
 </RelativeLayout>

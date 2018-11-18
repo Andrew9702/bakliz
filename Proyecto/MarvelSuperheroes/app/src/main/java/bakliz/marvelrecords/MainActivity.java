@@ -3,6 +3,8 @@ package bakliz.marvelrecords;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,28 +23,27 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
 
     ArrayList<MarvelHero> heroes;
-    private AdaptadorLista adapter;
-    private ListView lvHeroes;
+    RecyclerView lvHeroes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        lvHeroes = (ListView) findViewById(R.id.lvHeroes);
+        lvHeroes = findViewById(R.id.losHeroes);
+        lvHeroes.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         heroes = new ArrayList<MarvelHero>();
         cargarHeroes();
-        adapter= new AdaptadorLista(this, heroes);
-        lvHeroes.setAdapter(adapter);
-
-        lvHeroes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, InfoHeroe.class);
-                intent.putExtra("objetoData", heroes.get(position));
-                startActivity(intent);
-            }
-        });
+        AdaptadorRecycler adaptador = new AdaptadorRecycler(heroes);
+        lvHeroes.setAdapter(adaptador);
+        lvHeroes.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, lvHeroes ,new RecyclerItemClickListener.OnItemClickListener() {
+                    public void onItemClick(View view, int position) {
+                        Intent intent = new Intent(MainActivity.this, InfoHeroe.class);
+                        intent.putExtra("objetoData", heroes.get(position));
+                        startActivity(intent);
+                    }
+                })
+        );
     }
 
     @Override
