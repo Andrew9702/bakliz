@@ -1,5 +1,7 @@
 package bakliz.marvelrecords;
 
+import android.widget.ImageView;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -9,7 +11,7 @@ public class MarvelHero implements Serializable{
     private String nombre;
     private String origen;
     private String apariciones;
-    private int imagen;
+    private String imagen;
 
     public MarvelHero(){
         super();
@@ -18,7 +20,7 @@ public class MarvelHero implements Serializable{
         this.apariciones = "There ain't series registered on Marvel's API";
     }
 
-    public MarvelHero(String nombre, String origen, String apariciones, int imagen){
+    public MarvelHero(String nombre, String origen, String apariciones, String imagen){
         super();
         this.nombre = nombre;
         this.origen = origen;
@@ -39,7 +41,7 @@ public class MarvelHero implements Serializable{
     }
 
 
-    public int getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
@@ -55,7 +57,7 @@ public class MarvelHero implements Serializable{
         this.apariciones = apariciones;
     }
 
-    public void setImagen(int imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 }

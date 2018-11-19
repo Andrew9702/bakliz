@@ -1,10 +1,18 @@
 package bakliz.marvelrecords;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class InfoHeroe extends AppCompatActivity{
 
@@ -12,13 +20,14 @@ public class InfoHeroe extends AppCompatActivity{
     ImageView imagen;
     MarvelHero heroe_item;
 
+    Bitmap bm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
         setupActioBar();
 
-        //Obtenemos la información de la canción que escogió el usuario
         heroe_item = (MarvelHero) getIntent().getSerializableExtra("objetoData");
 
         nombre = (TextView) findViewById(R.id.nombre);
@@ -26,9 +35,11 @@ public class InfoHeroe extends AppCompatActivity{
         origen = (TextView) findViewById(R.id.origen);
         apariciones = (TextView) findViewById(R.id.apariciones);
 
-        //Actualizamos la pantalla con la información de la canción escogida por el usuario
+        String archivo = heroe_item.getImagen();
+        DownloadImageWithURLTask downloadTask = new DownloadImageWithURLTask(imagen);
+        downloadTask.execute(archivo);
+
         nombre.setText(heroe_item.getNombre());
-        imagen.setImageResource(heroe_item.getImagen());
         origen.setText(heroe_item.getOrigen());
         apariciones.setText(heroe_item.getApariciones());
     }

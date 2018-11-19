@@ -1,5 +1,7 @@
 package bakliz.marvelrecords;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class AdaptadorRecycler extends RecyclerView.Adapter<AdaptadorRecycler.HeroesHolder> {
@@ -37,6 +42,7 @@ public class AdaptadorRecycler extends RecyclerView.Adapter<AdaptadorRecycler.He
 
         TextView heroe;
         ImageView imagen;
+
         public HeroesHolder(View itemView) {
             super(itemView);
             heroe = (TextView) itemView.findViewById(R.id.heroe);
@@ -45,7 +51,10 @@ public class AdaptadorRecycler extends RecyclerView.Adapter<AdaptadorRecycler.He
 
         public void asignarDatos(MarvelHero marvelHero) {
             heroe.setText(marvelHero.getNombre());
-            imagen.setImageResource(marvelHero.getImagen());
+            String archivo = marvelHero.getImagen();
+            DownloadImageWithURLTask downloadTask = new DownloadImageWithURLTask(imagen);
+            downloadTask.execute(archivo);
         }
+
     }
 }

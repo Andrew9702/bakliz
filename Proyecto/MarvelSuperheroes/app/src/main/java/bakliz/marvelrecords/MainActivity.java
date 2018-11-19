@@ -3,6 +3,7 @@ package bakliz.marvelrecords;
 import android.app.ProgressDialog;
 import android.app.VoiceInteractor;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,12 +24,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.InputStream;
 import java.math.BigInteger;
+import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -45,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-
     long ts = new Date().getTime();
 
     String hash =  getMD5("1" + llave_privada + llave_publica);
@@ -61,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         request = Volley.newRequestQueue(this);
 
         cargarWebService();
-
 
         lvHeroes.addOnItemTouchListener(
                 new RecyclerItemClickListener(this, lvHeroes ,new RecyclerItemClickListener.OnItemClickListener() {
@@ -103,23 +106,6 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         }
     }
 
-    private void cargarHeroes(){
-        heroes.add(new MarvelHero("Spiderman",
-                "Picadura de araña radioactiva",
-                "Fuerza sobrehumana,sentido arácnido, trepar paredes",
-                R.drawable.spidey));
-
-        heroes.add(new MarvelHero("Dr. Strange",
-                "Aprendizaje y entrenamiento en las artes místicas",
-                "Poderes Místicos",
-                R.drawable.dr_strange));
-
-        heroes.add(new MarvelHero("Iron Man",
-                "Construcción de un traje mientras estaba secuestrado",
-                "Inteligencia, emanación de energía, Psi-Escudos",
-                R.drawable.iron_man));
-    }
-
     public static String getMD5(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -154,15 +140,21 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
             JSONObject lol = response.getJSONObject("data");
             JSONArray json = lol.optJSONArray("results");
             for(int i = 0; i < json.length(); i++) {
+
                 item = new MarvelHero();
                 JSONObject jsonObject = null;
                 jsonObject = json.getJSONObject(i);
                 item.setNombre(jsonObject.optString("name"));
                 item.setOrigen(jsonObject.optString("description"));
+
+                JSONObject obj_imagen = jsonObject.getJSONObject("thumbnail");
+                String ruta_imagen = obj_imagen.optString("path");
+                ruta_imagen = ruta_imagen + "/portrait_xlarge.jpg";
+                item.setImagen(ruta_imagen);
+
                 if(jsonObject.optString("description").equals("")){
                     item.setOrigen("There isn't a description on Marvel's API");
                 }
-
                 JSONObject comics = jsonObject.getJSONObject("series");
                 JSONArray json_2 = comics.optJSONArray("items");
                 for(int j = 0; j < json_2.length(); j++) {
@@ -171,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
                     apariciones = apariciones + jsonObject_2.optString("name") + "\n";
                     item.setApariciones(apariciones);
                 }
+                ruta_imagen = "";
                 apariciones = "";
                 heroes.add(item);
             }
