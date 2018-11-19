@@ -8,21 +8,21 @@ public class MarvelHero implements Serializable{
 
     private String nombre;
     private String origen;
-    private String habilidades;
+    private String apariciones;
     private int imagen;
 
     public MarvelHero(){
         super();
         this.nombre = "Superhéroe desconocido";
-        this.origen = "Origen desconocido";
-        this.habilidades = "Habilidades desconocidas";
+        this.origen = "There isn't a description on Marvel's API";
+        this.apariciones = "There ain't series registered on Marvel's API";
     }
 
-    public MarvelHero(String nombre, String origen, String habilidades, int imagen){
+    public MarvelHero(String nombre, String origen, String apariciones, int imagen){
         super();
         this.nombre = nombre;
         this.origen = origen;
-        this.habilidades = habilidades;
+        this.apariciones = apariciones;
         this.imagen = imagen;
     }
 
@@ -34,8 +34,8 @@ public class MarvelHero implements Serializable{
         return origen;
     }
 
-    public String getHabilidades() {
-        return habilidades;
+    public String getApariciones() {
+        return apariciones;
     }
 
 
@@ -51,8 +51,8 @@ public class MarvelHero implements Serializable{
         this.origen = origen;
     }
 
-    public void setHabilidades(String habilidades) {
-        this.habilidades = habilidades;
+    public void setApariciones(String apariciones) {
+        this.apariciones = apariciones;
     }
 
     public void setImagen(int imagen) {

@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class InfoHeroe extends AppCompatActivity{
 
-    TextView nombre, origen, habilidades;
+    TextView nombre, origen, apariciones;
     ImageView imagen;
     MarvelHero heroe_item;
 
@@ -24,13 +24,13 @@ public class InfoHeroe extends AppCompatActivity{
         nombre = (TextView) findViewById(R.id.nombre);
         imagen = (ImageView) findViewById(R.id.imagen);
         origen = (TextView) findViewById(R.id.origen);
-        habilidades = (TextView) findViewById(R.id.habilidades);
+        apariciones = (TextView) findViewById(R.id.apariciones);
 
         //Actualizamos la pantalla con la información de la canción escogida por el usuario
         nombre.setText(heroe_item.getNombre());
         imagen.setImageResource(heroe_item.getImagen());
         origen.setText(heroe_item.getOrigen());
-        habilidades.setText(heroe_item.getHabilidades());
+        apariciones.setText(heroe_item.getApariciones());
     }
 
     /*

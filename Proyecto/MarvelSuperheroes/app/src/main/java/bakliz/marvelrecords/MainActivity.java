@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
     @Override
     public void onResponse(JSONObject response) {
         MarvelHero item = null;
+        String apariciones = "";
         try {
             JSONObject lol = response.getJSONObject("data");
             JSONArray json = lol.optJSONArray("results");
@@ -156,10 +157,21 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
                 item = new MarvelHero();
                 JSONObject jsonObject = null;
                 jsonObject = json.getJSONObject(i);
-
                 item.setNombre(jsonObject.optString("name"));
                 item.setOrigen(jsonObject.optString("description"));
-                item.setHabilidades(jsonObject.optString("description"));
+                if(jsonObject.optString("description").equals("")){
+                    item.setOrigen("There isn't a description on Marvel's API");
+                }
+
+                JSONObject comics = jsonObject.getJSONObject("series");
+                JSONArray json_2 = comics.optJSONArray("items");
+                for(int j = 0; j < json_2.length(); j++) {
+                    JSONObject jsonObject_2 = null;
+                    jsonObject_2 = json_2.getJSONObject(j);
+                    apariciones = apariciones + jsonObject_2.optString("name") + "\n";
+                    item.setApariciones(apariciones);
+                }
+                apariciones = "";
                 heroes.add(item);
             }
             progreso.hide();
