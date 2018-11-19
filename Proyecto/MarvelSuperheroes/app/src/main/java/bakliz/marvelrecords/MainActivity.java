@@ -24,7 +24,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -149,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
                 JSONObject obj_imagen = jsonObject.getJSONObject("thumbnail");
                 String ruta_imagen = obj_imagen.optString("path");
-                ruta_imagen = ruta_imagen + "/portrait_xlarge.jpg";
+                ruta_imagen = ruta_imagen + "/landscape_large.jpg";
                 item.setImagen(ruta_imagen);
 
                 if(jsonObject.optString("description").equals("")){
