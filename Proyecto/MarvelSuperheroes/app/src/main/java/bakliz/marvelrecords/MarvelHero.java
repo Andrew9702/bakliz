@@ -1,9 +1,6 @@
 package bakliz.marvelrecords;
 
-import android.widget.ImageView;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 
 @SuppressWarnings("serial")
 public class MarvelHero implements Serializable{
@@ -18,14 +15,6 @@ public class MarvelHero implements Serializable{
         this.nombre = "Superhéroe desconocido";
         this.origen = "There isn't a description on Marvel's API";
         this.apariciones = "There ain't series registered on Marvel's API";
-    }
-
-    public MarvelHero(String nombre, String origen, String apariciones, String imagen){
-        super();
-        this.nombre = nombre;
-        this.origen = origen;
-        this.apariciones = apariciones;
-        this.imagen = imagen;
     }
 
     public String getNombre() {

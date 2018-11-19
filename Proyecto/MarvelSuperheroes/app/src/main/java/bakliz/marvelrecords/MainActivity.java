@@ -1,19 +1,16 @@
 package bakliz.marvelrecords;
 
 import android.app.ProgressDialog;
-import android.app.VoiceInteractor;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListView;
+import android.view.inputmethod.EditorInfo;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -29,9 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.InputStream;
 import java.math.BigInteger;
-import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -41,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
     ArrayList<MarvelHero> heroes;
     RecyclerView lvHeroes;
+    AdaptadorRecycler adaptador;
 
     String llave_publica = "19d9b8c329b60b431fa6ea00a320adf6";
     String llave_privada = "8edc72e50911111123451ee0901a4611a99385b8";
@@ -51,8 +47,12 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
     JsonObjectRequest jsonObjectRequest;
     long ts = new Date().getTime();
 
-    String hash =  getMD5("1" + llave_privada + llave_publica);
+    String hash = getMD5("1" + llave_privada + llave_publica);
 
+    /**
+     * Método que crea el activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +76,10 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         );
     }
 
+    /**
+     * Menú Action Bar
+     * Métodos que se encargan de obtener la información desde el sitio web.
+     */
     private void cargarWebService() {
         progreso = new ProgressDialog(this);
         progreso.setMessage("Consultando...");
@@ -85,24 +89,6 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         request.add(jsonObjectRequest);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.id_search:
-                Toast.makeText(MainActivity.this, "Search", Toast.LENGTH_SHORT).show();
-                return true;
-                default:
-                    return super.onOptionsItemSelected(item);
-        }
     }
 
     public static String getMD5(String input) {
@@ -167,12 +153,47 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
                 heroes.add(item);
             }
             progreso.hide();
-            AdaptadorRecycler adaptador = new AdaptadorRecycler(heroes);
+            adaptador = new AdaptadorRecycler(heroes);
             lvHeroes.setAdapter(adaptador);
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(this, "No hubo conexion con el servidor" + " " + response, Toast.LENGTH_LONG).show();
             progreso.hide();
         }
+    }
+
+    /**
+     * Menú Action Bar
+     * Métodos que se encargan de crear y darle funcionalidad al Action Bar
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.id_search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                adaptador.getFilter().filter(s);
+                return false;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return  super.onOptionsItemSelected(item);
     }
 }

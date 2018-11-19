@@ -1,18 +1,11 @@
 package bakliz.marvelrecords;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 public class InfoHeroe extends AppCompatActivity{
 
@@ -26,7 +19,7 @@ public class InfoHeroe extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
-        setupActioBar();
+        setupActionBar();
 
         heroe_item = (MarvelHero) getIntent().getSerializableExtra("objetoData");
 
@@ -47,7 +40,7 @@ public class InfoHeroe extends AppCompatActivity{
     /*
      * Botón de regreso
      */
-    private void setupActioBar(){
+    private void setupActionBar(){
         ActionBar actionBar = getSupportActionBar();
 
         if(actionBar != null){
