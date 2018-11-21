@@ -12,79 +12,89 @@
     android:background="#C0C0C0"
     tools:context="bakliz.marvelrecords.InfoHeroe">
 
-    <!-- Nombre del superhéroe -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/nombre"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:text="Héroe"
-        android:textColor="#000000" />
-
-    <!-- Imagen del superhéroe -->
-    <ImageView
-        android:id="@+id/imagen"
-        android:layout_width="200dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"/>
-
-
-    <!-- Información del superhéroe -->
     <LinearLayout
-        android:id="@+id/info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/image_hero">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <!-- Origen del superhéroe -->
+        <!-- Nombre del superhéroe -->
         <TextView
-            android:id="@+id/origen_titulo"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:paddingTop="10dp"
-            android:text="Description"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="italic" />
+            android:id="@+id/nombre"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:text="Héroe"
+            android:textColor="#000000" />
 
-        <TextView
-            android:id="@+id/origen"
-            android:text="Origen"
-            android:textSize="15sp"
-            android:textColor="#000000"
-            android:layout_below="@+id/origen_titulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"/>
+        <!-- Imagen del superhéroe -->
+        <ImageView
+            android:id="@+id/imagen"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"/>
 
-        <!-- Habilidades del superhéroe -->
-        <TextView
-            android:id="@+id/hab_titulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/origen"
-            android:layout_centerHorizontal="true"
-            android:paddingTop="10dp"
-            android:text="Appears in:"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="italic" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/apariciones"
-            android:text="Apariciones"
-            android:textSize="15sp"
-            android:textColor="#000000"
-            android:layout_below="@+id/hab_titulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"/>
+            <!-- Información del superhéroe -->
+            <LinearLayout
+                android:id="@+id/info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/image_hero">
+
+                <!-- Descripción del superhéroe -->
+                <TextView
+                    android:id="@+id/origen_titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:paddingTop="10dp"
+                    android:text="Description"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/origen"
+                    android:text="Origen"
+                    android:textSize="15sp"
+                    android:textColor="#000000"
+                    android:layout_below="@+id/origen_titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"/>
+
+                <!-- Apariciones en cómics -->
+                <TextView
+                    android:id="@+id/hab_titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/origen"
+                    android:layout_centerHorizontal="true"
+                    android:paddingTop="10dp"
+                    android:text="Appears in:"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/apariciones"
+                    android:text="Apariciones"
+                    android:textSize="15sp"
+                    android:textColor="#000000"
+                    android:layout_below="@+id/hab_titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"/>
+
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
-
 </LinearLayout>
