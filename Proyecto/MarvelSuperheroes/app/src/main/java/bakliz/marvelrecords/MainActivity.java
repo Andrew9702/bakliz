@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(this, "No se pudo hacer conexion" + " " + error.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Falló la conexión con el servidor" + " " + error.toString(), Toast.LENGTH_LONG).show();
         System.out.println();
         Log.d("ERROR: ", error.toString());
         progreso.hide();

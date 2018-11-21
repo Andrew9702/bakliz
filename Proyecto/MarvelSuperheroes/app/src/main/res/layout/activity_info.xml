@@ -9,7 +9,7 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="15dp"
-    android:background="#C0C0C0"
+    android:background="@color/silver"
     tools:context="bakliz.marvelrecords.InfoHeroe">
 
     <LinearLayout
