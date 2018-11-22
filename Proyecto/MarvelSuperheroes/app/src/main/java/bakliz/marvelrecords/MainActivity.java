@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url = "https://gateway.marvel.com/v1/public/characters?ts=1&apikey=19d9b8c329b60b431fa6ea00a320adf6&hash=b12fd8a28a1900f7f5af647fc540f4e5";
+        String url = "https://gateway.marvel.com/v1/public/characters?limit=100&ts=1&apikey=19d9b8c329b60b431fa6ea00a320adf6&hash=b12fd8a28a1900f7f5af647fc540f4e5";
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         request.add(jsonObjectRequest);
