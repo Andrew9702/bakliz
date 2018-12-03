@@ -2,6 +2,7 @@ package bakliz.tarea02;
 
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,7 @@ public class Reproductor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reproductor);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setupActionBar();
 
         play = (Button) findViewById(R.id.play);
         pause = (Button) findViewById(R.id.pause);
@@ -137,5 +139,17 @@ public class Reproductor extends AppCompatActivity {
         mp.stop();
         mp = null;
         Toast.makeText(this, "Stop", Toast.LENGTH_SHORT).show();
+    }
+
+    /*
+     * Botón de regreso
+     */
+    private void setupActionBar(){
+        ActionBar actionBar = getSupportActionBar();
+
+        if(actionBar != null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("Reproductor");
+        }
     }
 }
