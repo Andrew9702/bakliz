@@ -84,7 +84,7 @@
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_toRightOf="@id/play"
-            android:background="@drawable/ic_action_stop"/>
+            android:background="@drawable/stop"/>
     </LinearLayout>
 
 </RelativeLayout>
