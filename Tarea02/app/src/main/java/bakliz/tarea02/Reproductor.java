@@ -25,7 +25,10 @@ public class Reproductor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reproductor);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        setupActionBar();
+
+        //Botón de regreso
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         play = (Button) findViewById(R.id.play);
         pause = (Button) findViewById(R.id.pause);
@@ -41,6 +44,8 @@ public class Reproductor extends AppCompatActivity {
         artista = (TextView) findViewById(R.id.artista);
         nombre.setText(nombre_cancion);
         artista.setText(artista_cancion);
+
+        setTitle(nombre_cancion);
 
         play.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,17 +144,5 @@ public class Reproductor extends AppCompatActivity {
         mp.stop();
         mp = null;
         Toast.makeText(this, "Stop", Toast.LENGTH_SHORT).show();
-    }
-
-    /*
-     * Botón de regreso
-     */
-    private void setupActionBar(){
-        ActionBar actionBar = getSupportActionBar();
-
-        if(actionBar != null){
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle("Reproductor");
-        }
     }
 }
