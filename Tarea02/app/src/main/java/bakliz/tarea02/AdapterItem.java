@@ -65,7 +65,7 @@ public class AdapterItem extends BaseAdapter {
         artista.setText(c.getArtista());
 
         ImageView imagen = (ImageView) v.findViewById(R.id.image_album);
-        imagen.setImageDrawable(c.getImagen());
+        imagen.setImageResource(c.getImagen());
 
         return v;
     }

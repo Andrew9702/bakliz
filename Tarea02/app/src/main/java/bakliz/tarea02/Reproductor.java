@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,9 +16,11 @@ public class Reproductor extends AppCompatActivity {
     MediaPlayer mp;
     Button play, pause, stop;
     TextView nombre, artista;
+    ImageView imagen;
 
     Cancion cancion;
     String nombre_cancion, artista_cancion;
+    int imagen_cancion;
     int pausa;
 
     @Override
@@ -30,6 +33,11 @@ public class Reproductor extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        //Interfaz
+        nombre = (TextView) findViewById(R.id.cancion);
+        artista = (TextView) findViewById(R.id.artista);
+        imagen = (ImageView) findViewById(R.id.imagen);
+
         play = (Button) findViewById(R.id.play);
         pause = (Button) findViewById(R.id.pause);
         stop = (Button) findViewById(R.id.stop);
@@ -38,12 +46,12 @@ public class Reproductor extends AppCompatActivity {
         Bundle datos = this.getIntent().getExtras();
         nombre_cancion = datos.getString("cancion");
         artista_cancion = datos.getString("artista");
+        imagen_cancion = datos.getInt("imagen");
 
         //Actualizamos la pantalla con la información de la canción escogida por el usuario
-        nombre = (TextView) findViewById(R.id.cancion);
-        artista = (TextView) findViewById(R.id.artista);
         nombre.setText(nombre_cancion);
         artista.setText(artista_cancion);
+        imagen.setImageResource(imagen_cancion);
 
         setTitle(nombre_cancion);
 

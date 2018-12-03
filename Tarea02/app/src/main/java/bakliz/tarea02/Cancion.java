@@ -1,7 +1,5 @@
 package bakliz.tarea02;
 
-import android.graphics.drawable.Drawable;
-
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
@@ -9,7 +7,7 @@ public class Cancion implements Serializable{
 
     private String nombre;
     private String artista;
-    private Drawable imagen;
+    private int imagen;
 
     public Cancion(){
         super();
@@ -17,7 +15,7 @@ public class Cancion implements Serializable{
         this.artista = "Artista Desconocido";
     }
 
-    public Cancion(String nombre, String artista, Drawable imagen){
+    public Cancion(String nombre, String artista, int imagen){
         super();
         this.nombre = nombre;
         this.artista = artista;
@@ -32,7 +30,7 @@ public class Cancion implements Serializable{
         return artista;
     }
 
-    public Drawable getImagen() {
+    public int getImagen() {
         return imagen;
     }
 
@@ -44,7 +42,7 @@ public class Cancion implements Serializable{
         this.artista = artista;
     }
 
-    public void setImagen(Drawable imagen) {
+    public void setImagen(int imagen) {
         this.imagen = imagen;
     }
 }
