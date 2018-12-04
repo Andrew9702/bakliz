@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashPerro"
+    android:background="#EEEEEE">
+
+    <ImageView
+        android:layout_width="385dp"
+        android:layout_height="422dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:background="#EEEEEE"
+        android:src="@drawable/perroapi"/>
+
+
+</android.support.constraint.ConstraintLayout>
