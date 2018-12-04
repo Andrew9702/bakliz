@@ -41,7 +41,7 @@ public class InfoPerro extends AppCompatActivity {
 
         if(actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle("Info Marvel");
+            actionBar.setTitle("Datos generales");
         }
     }
 }
