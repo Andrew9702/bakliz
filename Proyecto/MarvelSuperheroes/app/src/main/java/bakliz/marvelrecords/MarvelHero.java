@@ -10,6 +10,7 @@ public class MarvelHero implements Serializable{
     private String apariciones;
     private String imagen;
 
+
     public MarvelHero(){
         super();
         this.nombre = "Superhéroe desconocido";
